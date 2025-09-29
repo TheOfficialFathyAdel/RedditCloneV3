@@ -1,5 +1,5 @@
 import { Colors } from "@/colors/Colors";
-import { Stack, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import {
   CirclePlus,
   Home,
@@ -12,15 +12,16 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.tabBarActiveTintColor,
-        tabBarInactiveTintColor: Colors.tabBarInactiveTintColor,
+        tabBarActiveTintColor: Colors.TabBarActiveTintColor,
+        tabBarInactiveTintColor: Colors.TabBarInactiveTintColor,
         tabBarLabelStyle: { fontSize: 13, fontWeight: "600" },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Reddit",
+          title: "Home",
+          headerTitle: "Reddit",
           headerTitleAlign: "center",
           headerTintColor: Colors.RedditColor,
           tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
