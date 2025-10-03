@@ -1,9 +1,23 @@
-import { Stack } from "expo-router";
+import { useAuth } from "@clerk/clerk-expo";
+import { Redirect, Stack } from "expo-router";
 
 export default function AuthLayout() {
+  const { isSignedIn } = useAuth();
+
+  if (isSignedIn) {
+    return <Redirect href={"/"} />;
+  }
+
   return (
-    <Stack screenOptions={{ headerTitleAlign: "center" }}>
-      <Stack.Screen name="signIn" options={{ title: "SignIn" }} />
+    <Stack>
+      <Stack.Screen
+        name="signIn"
+        options={{ headerTitle: "SignIn", headerTitleAlign: "center" }}
+      />
+      <Stack.Screen
+        name="signUp"
+        options={{ headerTitle: "SignUp", headerTitleAlign: "center" }}
+      />
     </Stack>
   );
 }

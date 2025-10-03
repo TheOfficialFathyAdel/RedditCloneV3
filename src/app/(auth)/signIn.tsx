@@ -3,7 +3,6 @@ import { Link, useRouter } from "expo-router";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import React from "react";
 import tw from "twrnc";
-import { Colors } from "@/colors/Colors";
 import Snackbar from "@/src/components/snackbar";
 
 export default function Page() {
