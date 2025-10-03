@@ -1,20 +1,27 @@
 import { Colors } from "@/colors/Colors";
+import { useAuth } from "@clerk/clerk-expo";
 import { Tabs } from "expo-router";
 import {
   CirclePlus,
   Home,
   Inbox,
+  LogOut,
   MessageCircleMore,
   Users,
 } from "lucide-react-native";
+import tw from "twrnc";
 
 export default function TabsLayout() {
+  const { signOut } = useAuth();
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.TabBarActiveTintColor,
         tabBarInactiveTintColor: Colors.TabBarInactiveTintColor,
         tabBarLabelStyle: { fontSize: 13, fontWeight: "600" },
+        headerRight: () => (
+          <LogOut size={28} style={tw`mr-4 `} onPress={() => signOut()} />
+        ),
       }}
     >
       <Tabs.Screen
